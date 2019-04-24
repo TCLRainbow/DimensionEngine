@@ -1,23 +1,24 @@
-project(libdimensionengine VERSION 0.0 LANGUAGES CXX)
+project(dimensionengine VERSION 0.0 LANGUAGES CXX)
 
-add_library(libdimensionengine
+add_library(dimensionengine SHARED
         src/dimensionengine.cpp)
 
-target_include_directories(libdimensionengine PUBLIC
+target_include_directories(dimensionengine PUBLIC
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
         $<INSTALL_INTERFACE:include>
         PRIVATE src)
 
-target_compile_features(libdimensionengine
+target_compile_features(dimensionengine
         PUBLIC cxx_auto_type
         PRIVATE cxx_variadic_templates)
 
-target_link_libraries(libdimensionengine)
+target_link_libraries(dimensionengine PUBLIC
+         spdlog)
 
-install(TARGETS libdimensionengine EXPORT MyLibraryConfig
+install(TARGETS dimensionengine EXPORT dimensionengineConfig
         ARCHIVE  DESTINATION ${CMAKE_INSTALL_LIBDIR}
         LIBRARY  DESTINATION ${CMAKE_INSTALL_LIBDIR}
         RUNTIME  DESTINATION ${CMAKE_INSTALL_BINDIR})  # This is for Windows
 install(DIRECTORY include/ DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
-install(EXPORT MyLibraryConfig DESTINATION cmake)
-export(TARGETS libdimensionengine FILE LibDimensionEngineConfig.cmake)
+install(EXPORT dimensionengineConfig DESTINATION cmake)
+export(TARGETS dimensionengine FILE dimensionengineConfig.cmake)

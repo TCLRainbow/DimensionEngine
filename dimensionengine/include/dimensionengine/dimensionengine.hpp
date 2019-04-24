@@ -5,4 +5,10 @@
 #ifndef DIMENSIONENGINE_DIMENSIONENGINE_HPP
 #define DIMENSIONENGINE_DIMENSIONENGINE_HPP
 
+namespace chingdim::dimeng {
+        class Engine {
+
+        };
+    }
+
 #endif //DIMENSIONENGINE_DIMENSIONENGINE_HPP
