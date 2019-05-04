@@ -12,13 +12,14 @@ target_compile_features(dimensionengine
         PUBLIC cxx_auto_type
         PRIVATE cxx_variadic_templates)
 
-target_link_libraries(dimensionengine PUBLIC
-         spdlog)
+target_link_libraries(dimensionengine
+         spdlog
+         atmohorizon)
 
-install(TARGETS dimensionengine EXPORT dimensionengineConfig
+install(TARGETS dimensionengine EXPORT DimensionEngineConfig
         ARCHIVE  DESTINATION ${CMAKE_INSTALL_LIBDIR}
         LIBRARY  DESTINATION ${CMAKE_INSTALL_LIBDIR}
         RUNTIME  DESTINATION ${CMAKE_INSTALL_BINDIR})  # This is for Windows
 install(DIRECTORY include/ DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
-install(EXPORT dimensionengineConfig DESTINATION cmake)
-export(TARGETS dimensionengine FILE dimensionengineConfig.cmake)
+install(EXPORT DimensionEngineConfig DESTINATION cmake)
+export(TARGETS dimensionengine FILE DimensionEngineConfig.cmake)
