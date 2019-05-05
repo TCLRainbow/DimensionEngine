@@ -5,3 +5,6 @@ Besides scaling, portability will be another main focus.
 
 ## BlackHorizon
 `Atmohorizon(AtmHrz)` is the rendering sub-engine, inspired by a hypothesis that black holes may have atmosphere
+
+### Build notes
+For Windows, add your toolchain's binary folder to PATH. E.g. `D:\msys2\mingw64\bin`

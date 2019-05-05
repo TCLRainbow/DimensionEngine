@@ -6,7 +6,9 @@ arch:
     - gcc
     - cmake
     - make
+    - git
   script:
+    - git submodule add --branch master https://github.com/gabime/spdlog.git libs/spdlog
     - cmake . && make
 
 script:
